@@ -6,11 +6,13 @@ namespace UsedCarLotLab
 {
     class UsedCar : Car
     {
-        public UsedCar(string cMake, string cModel, int cYear, double cPrice, double cMileage) : base(cModel, cMake, cYear, cPrice)
+        public double Mileage { get; set; }
+
+        public UsedCar(string cMake, string cModel, int cYear, double cPrice, double cMileage, int n) : base(cModel, cMake, cYear, cPrice, n)
         {
             Mileage = cMileage;
         }
-        public double Mileage;
+        
 
         public override string ToString()
         {

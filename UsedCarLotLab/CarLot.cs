@@ -11,7 +11,7 @@ namespace UsedCarLotLab
 
         public CarLot()
         {
-            AllCars = new List<Car>      //indexNum, make, model, year, price, mileage
+            AllCars = new List<Car>     
             {
                 new Car("Tesla", "S", 2021, 69420),
                 new UsedCar("Toyota", "Corolla", 2006, 6000, 120000),
@@ -25,6 +25,13 @@ namespace UsedCarLotLab
         //methods
         public void BuyCar()
         {
+            /*
+            if (GetLength() == 0)
+            {
+                Console.WriteLine("There are no more cars available.");
+            }
+            */
+
             Console.Write("Would you like to buy a car? (y/n): ");
 
             while (true)
@@ -35,6 +42,8 @@ namespace UsedCarLotLab
                 {
                     Console.Write($"Which car would you like to buy? Enter a number 1-{GetLength()}: ");
                     int carChoice = Validator.Validator.GetInt(1, GetLength());
+                    Console.WriteLine($"\nCongratulations. You are now the owner of {AllCars[carChoice-1].Year} {AllCars[carChoice-1].Make} {AllCars[carChoice-1].Model}.\n" +
+                                      $"Below is the updated list of available cars.\n");
                     AllCars.Remove(AllCars[carChoice - 1]);
                     PrintCarList();
                     break;
@@ -74,7 +83,7 @@ namespace UsedCarLotLab
                         Console.Write("What is the model of the car? ");
                         string model = Validator.Validator.GetString();
                         Console.Write("What year is the car? ");
-                        int year = Validator.Validator.GetInt(1920, 2022);
+                        int year = Validator.Validator.GetInt(2019, 2022);
                         Console.Write("What is the price of the car? ");
                         double price = Validator.Validator.GetDouble(500, 100000);
 
@@ -112,14 +121,10 @@ namespace UsedCarLotLab
             }
         }
 
-        public void MessUp()
-        {
-
-        }
-
         public void PrintCarList()
         {
-            AllCars.ForEach(car => Console.WriteLine($"{GetLength()}. {car.ToString()}\n"));
+            int i = 1;
+            AllCars.ForEach(car => Console.WriteLine($"{i++}. {car}\n"));
         }
 
         public int GetLength()

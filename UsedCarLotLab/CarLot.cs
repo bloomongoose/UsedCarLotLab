@@ -117,6 +117,11 @@ namespace UsedCarLotLab
 
         }
 
+        public void Messup2()
+        {
+
+        }
+
         public void PrintCarList()
         {
             AllCars.ForEach(car => Console.WriteLine($"{GetLength()}. {car.ToString()}\n"));

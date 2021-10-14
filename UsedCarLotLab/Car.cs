@@ -6,23 +6,21 @@ namespace UsedCarLotLab
 {
     class Car
     {
-        public string Make;
-        public string Model;
-        public int Year;
-        public double Price;
-        public int N;
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Year { get; set; }
+        public double Price { get; set; }
 
-        public Car(string cMake, string cModel, int cYear, double cPrice, int n)
+        public Car(string cMake, string cModel, int cYear, double cPrice)
         {
             Make = cMake;
             Model = cModel;
             Year = cYear;
             Price = cPrice;
-            N = n;
         }
         public override string ToString()
         {
-            return $"Option: {N} Make: {Make} | Model: {Model} | Year: {Year} | Price: {Price}";
+            return $"Make: {Make} | Model: {Model} | Year: {Year} | Price: {Price}";
         }
     }
 }
